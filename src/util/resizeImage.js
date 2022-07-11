@@ -1,4 +1,4 @@
-const sharp = require('sharp');
+import sharp from 'sharp';
 
 const resizeImage = async (originalImage, width, height, resizedImage) => {
   const image = await sharp(originalImage)
@@ -7,4 +7,4 @@ const resizeImage = async (originalImage, width, height, resizedImage) => {
   return image;
 };
 
-module.exports = resizeImage;
+export default resizeImage;

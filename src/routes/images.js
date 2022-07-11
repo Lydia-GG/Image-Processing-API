@@ -1,8 +1,8 @@
-const express = require('express');
-const getImageFile = require('../controllers/getImageFile');
+import express from 'express';
+import getImageFile from '../controllers/getImageFile';
 
 const route = express.Router();
 
 route.get('/', getImageFile);
 
-module.exports = route;
+export default route;

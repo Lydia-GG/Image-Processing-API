@@ -1,5 +1,6 @@
-const express = require('express');
-const imagesRoute = require('./routes/images');
+import express from 'express';
+import imagesRoute from './routes/images';
+
 const app = express();
 const port = 5000;
 
