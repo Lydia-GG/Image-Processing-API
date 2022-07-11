@@ -1,9 +1,10 @@
 import fs from 'fs';
+import { Response, Request } from 'express';
 import checkExistImage from '../util/checkExistImage';
 
 import resizeImage from '../util/resizeImage';
 
-const getImageFile = async (req, res) => {
+const getImageFile = async (req: Request, res: Response) => {
   const fileName = req.query.filename;
   const imageWidth = parseInt(req.query.width);
   const imageHeight = parseInt(req.query.height);
