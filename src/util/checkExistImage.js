@@ -1,4 +1,4 @@
-const fs = require('fs');
+import fs from 'fs';
 
 const checkExistImage = (fileName, imageWidth, imageHeight) => {
   const existImage = fs.readdirSync(`./images/full`).find((image) => {
@@ -9,4 +9,4 @@ const checkExistImage = (fileName, imageWidth, imageHeight) => {
   return existImage;
 };
 
-module.exports = checkExistImage;
+export default checkExistImage;

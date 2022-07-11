@@ -1,6 +1,7 @@
-const fs = require('fs');
-const checkExistImage = require('../util/checkExistImage');
-const resizeImage = require('../util/resizeImage');
+import fs from 'fs';
+import checkExistImage from '../util/checkExistImage';
+
+import resizeImage from '../util/resizeImage';
 
 const getImageFile = async (req, res) => {
   const fileName = req.query.filename;
@@ -38,4 +39,4 @@ const getImageFile = async (req, res) => {
   }
 };
 
-module.exports = getImageFile;
+export default getImageFile;
