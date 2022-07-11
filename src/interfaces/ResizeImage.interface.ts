@@ -1,7 +1,7 @@
 interface ResizeImage {
   originalImage: string;
-  width: string;
-  height: string;
+  imageWidth: number;
+  imageHeight: number;
   resizedImage: string;
 }
 
