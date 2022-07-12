@@ -7,5 +7,9 @@ var express_1 = __importDefault(require("express"));
 var images_1 = __importDefault(require("./routes/images"));
 var app = (0, express_1.default)();
 var port = 5000;
+app.get('/', function (req, res) {
+    res.status(200).send('Test');
+});
 app.use('/images', images_1.default);
 app.listen(port, function () { return console.log("server is running on port ".concat(port)); });
+exports.default = app;
