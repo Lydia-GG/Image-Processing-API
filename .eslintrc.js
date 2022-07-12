@@ -1,6 +1,5 @@
 module.exports = {
   env: {
-    root: true,
     browser: true,
     es6: true,
   },
@@ -10,6 +9,6 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['@typescript-eslint'],
+  plugins: ['@typescript-eslint/eslint-plugin'],
   rules: {},
 };
