@@ -39,28 +39,20 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var sharp_1 = __importDefault(require("sharp"));
-var resizeImage = function (_a) {
-    var originalImage = _a.originalImage, imageWidth = _a.imageWidth, imageHeight = _a.imageHeight, resizedImage = _a.resizedImage;
-    return __awaiter(void 0, void 0, void 0, function () {
-        var outputImage, error_1;
-        return __generator(this, function (_b) {
-            switch (_b.label) {
-                case 0:
-                    _b.trys.push([0, 2, , 3]);
-                    return [4 /*yield*/, (0, sharp_1.default)(originalImage)
-                            .resize(imageWidth, imageHeight)
-                            .toFile(resizedImage)];
+var index_1 = __importDefault(require("../index"));
+var supertest_1 = __importDefault(require("supertest"));
+var request = (0, supertest_1.default)(index_1.default);
+describe('test endpoint response', function () {
+    it('get response status 200', function () { return __awaiter(void 0, void 0, void 0, function () {
+        var response;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, request.get('/')];
                 case 1:
-                    outputImage = _b.sent();
-                    console.log(typeof resizedImage);
-                    return [2 /*return*/, outputImage];
-                case 2:
-                    error_1 = _b.sent();
-                    return [2 /*return*/, error_1];
-                case 3: return [2 /*return*/];
+                    response = _a.sent();
+                    expect(response.status).toBe(200);
+                    return [2 /*return*/];
             }
         });
-    });
-};
-exports.default = resizeImage;
+    }); });
+});

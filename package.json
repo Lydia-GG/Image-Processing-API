@@ -1,31 +1,46 @@
 {
-  "name": "nodejs",
+  "name": "image-processing-api",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "prettier": "prettier --config .prettierrc src/**/*.js --write",
-    "lint": "eslint . --ext .js",
-    "start": "npx tsc & nodemon build/index.js"
+    "build": "npx tsc",
+    "lint": "eslint . --ext .ts",
+    "start": "npm run build & nodemon build/index.js",
+    "jasmine": "jasmine",
+    "test": "npm run build && npm run jasmine"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.1",
+    "jasmine": "^4.2.1",
     "nodemon": "^2.0.18",
-    "sharp": "^0.30.7"
+    "sharp": "^0.30.7",
+    "supertest": "^6.2.4"
   },
   "devDependencies": {
     "@types/express": "^4.17.13",
+    "@types/jasmine": "^4.0.3",
     "@types/sharp": "^0.30.4",
-    "@typescript-eslint/eslint-plugin": "^5.30.5",
-    "@typescript-eslint/parser": "^5.30.5",
+    "@types/supertest": "^2.0.12",
+    "@typescript-eslint/eslint-plugin": "^5.30.6",
+    "@typescript-eslint/parser": "^5.30.6",
     "eslint": "^8.19.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
+    "jasmine-spec-reporter": "^7.0.0",
     "prettier": "^2.7.1",
     "typescript": "^4.7.4"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lydia-GG/Image-Processing-API.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Lydia-GG/Image-Processing-API/issues"
+  },
+  "homepage": "https://github.com/Lydia-GG/Image-Processing-API#readme"
 }

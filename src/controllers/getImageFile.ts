@@ -3,7 +3,10 @@ import { Response, Request } from 'express';
 import checkExistImage from '../util/checkExistImage';
 import resizeImage from '../util/resizeImage';
 
-const getImageFile = async (req: Request, res: Response): Promise<unknown> => {
+const getImageFile = async (
+  req: Request,
+  res: Response
+): Promise<unknown | object> => {
   const fileName = req.query.filename as string;
   const imageWidth = parseInt(req.query.width as string) as number;
   const imageHeight = parseInt(req.query.height as string) as number;
