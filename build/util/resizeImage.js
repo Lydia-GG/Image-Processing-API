@@ -43,16 +43,22 @@ var sharp_1 = __importDefault(require("sharp"));
 var resizeImage = function (_a) {
     var originalImage = _a.originalImage, imageWidth = _a.imageWidth, imageHeight = _a.imageHeight, resizedImage = _a.resizedImage;
     return __awaiter(void 0, void 0, void 0, function () {
-        var outputImage;
+        var outputImage, error_1;
         return __generator(this, function (_b) {
             switch (_b.label) {
-                case 0: return [4 /*yield*/, (0, sharp_1.default)(originalImage)
-                        .resize(imageWidth, imageHeight)
-                        .toFile(resizedImage)];
+                case 0:
+                    _b.trys.push([0, 2, , 3]);
+                    return [4 /*yield*/, (0, sharp_1.default)(originalImage)
+                            .resize(imageWidth, imageHeight)
+                            .toFile(resizedImage)];
                 case 1:
                     outputImage = _b.sent();
                     console.log(typeof resizedImage);
                     return [2 /*return*/, outputImage];
+                case 2:
+                    error_1 = _b.sent();
+                    return [2 /*return*/, error_1];
+                case 3: return [2 /*return*/];
             }
         });
     });
