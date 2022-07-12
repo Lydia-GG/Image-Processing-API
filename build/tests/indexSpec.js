@@ -55,4 +55,106 @@ describe('test endpoint response', function () {
             }
         });
     }); });
+    it('get response status 200 when we use only filename', function () { return __awaiter(void 0, void 0, void 0, function () {
+        var response;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, request.get('/images?filename=santamonica')];
+                case 1:
+                    response = _a.sent();
+                    expect(response.status).toBe(200);
+                    return [2 /*return*/];
+            }
+        });
+    }); });
+    it('response text and status when we use filename and width only', function () { return __awaiter(void 0, void 0, void 0, function () {
+        var response;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, request.get('/images?filename=santamonica&width=100')];
+                case 1:
+                    response = _a.sent();
+                    expect(response.status).toBe(400);
+                    expect(response.text).toBe('please provide image height!');
+                    return [2 /*return*/];
+            }
+        });
+    }); });
+    it('response text and status when we use filename and height only', function () { return __awaiter(void 0, void 0, void 0, function () {
+        var response;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, request.get('/images?filename=santamonica&height=100')];
+                case 1:
+                    response = _a.sent();
+                    expect(response.status).toBe(400);
+                    expect(response.text).toBe('please provide image width!');
+                    return [2 /*return*/];
+            }
+        });
+    }); });
+    it('response text and status when we use set width= 0', function () { return __awaiter(void 0, void 0, void 0, function () {
+        var response;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, request.get('/images?filename=santamonica&width=0&height=100')];
+                case 1:
+                    response = _a.sent();
+                    expect(response.status).toBe(400);
+                    expect(response.text).toBe('please provide image width!');
+                    return [2 /*return*/];
+            }
+        });
+    }); });
+    it('response text and status when we use set height= 0', function () { return __awaiter(void 0, void 0, void 0, function () {
+        var response;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, request.get('/images?filename=santamonica&width=100&height=0')];
+                case 1:
+                    response = _a.sent();
+                    expect(response.status).toBe(400);
+                    expect(response.text).toBe('please provide image height!');
+                    return [2 /*return*/];
+            }
+        });
+    }); });
+    it('response text and status when we use set width < 0', function () { return __awaiter(void 0, void 0, void 0, function () {
+        var response;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, request.get('/images?filename=santamonica&width=-1&height=100')];
+                case 1:
+                    response = _a.sent();
+                    expect(response.status).toBe(400);
+                    expect(response.text).toBe('please provide positive integer');
+                    return [2 /*return*/];
+            }
+        });
+    }); });
+    it('response text and status when we use set height < 0', function () { return __awaiter(void 0, void 0, void 0, function () {
+        var response;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, request.get('/images?filename=santamonica&width=100&height=-1')];
+                case 1:
+                    response = _a.sent();
+                    expect(response.status).toBe(400);
+                    expect(response.text).toBe('please provide positive integer');
+                    return [2 /*return*/];
+            }
+        });
+    }); });
+    it('response status 200 when we use right path', function () { return __awaiter(void 0, void 0, void 0, function () {
+        var response;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, request.get('/images?filename=santamonica&width=100&height=100')];
+                case 1:
+                    response = _a.sent();
+                    expect(response.status).toBe(200);
+                    return [2 /*return*/];
+            }
+        });
+    }); });
 });
