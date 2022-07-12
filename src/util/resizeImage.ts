@@ -11,7 +11,7 @@ const resizeImage = async ({
     const outputImage = await sharp(originalImage)
       .resize(imageWidth, imageHeight)
       .toFile(resizedImage);
-    console.log(typeof resizedImage);
+
     return outputImage;
   } catch (error) {
     return error;

@@ -56,44 +56,48 @@ var getImageFile = function (req, res) { return __awaiter(void 0, void 0, void 0
                 console.log(existImage);
                 _a.label = 1;
             case 1:
-                _a.trys.push([1, 4, , 5]);
-                if (existImage) {
-                    console.log('image is exist');
-                    return [2 /*return*/, res
-                            .status(200)
-                            .contentType('jpeg')
-                            .send(fs_1.default.readFileSync("images/full/".concat(existImage)))];
-                }
-                if (fileName && !imageHeight && !imageWidth) {
-                    res.status(200).contentType('jpeg').send(fs_1.default.readFileSync(originalImage));
-                }
-                if (imageWidth && !imageHeight) {
-                    res.status(400).send('please provide image height!');
-                }
-                if (imageHeight && !imageWidth) {
-                    res.status(400).send('please provide image width!');
-                }
-                if (imageHeight <= 0 || imageWidth <= 0) {
-                    res.status(400).send('please provide positive integer');
-                }
-                if (!(fileName && imageHeight && imageWidth)) return [3 /*break*/, 3];
+                _a.trys.push([1, 9, , 10]);
+                if (!existImage) return [3 /*break*/, 2];
+                console.log('image is exist');
+                return [2 /*return*/, res
+                        .status(200)
+                        .contentType('jpeg')
+                        .send(fs_1.default.readFileSync("images/full/".concat(existImage)))];
+            case 2:
+                if (!(fileName && !imageHeight && !imageWidth)) return [3 /*break*/, 3];
+                res.status(200).contentType('jpeg').send(fs_1.default.readFileSync(originalImage));
+                return [3 /*break*/, 8];
+            case 3:
+                if (!(imageWidth && !imageHeight)) return [3 /*break*/, 4];
+                res.status(400).send('please provide image height!');
+                return [3 /*break*/, 8];
+            case 4:
+                if (!(imageHeight && !imageWidth)) return [3 /*break*/, 5];
+                res.status(400).send('please provide image width!');
+                return [3 /*break*/, 8];
+            case 5:
+                if (!(imageHeight < 0 || imageWidth < 0)) return [3 /*break*/, 6];
+                res.status(400).send('please provide positive integer');
+                return [3 /*break*/, 8];
+            case 6:
+                if (!(fileName && imageHeight && imageWidth)) return [3 /*break*/, 8];
                 return [4 /*yield*/, (0, resizeImage_1.default)({
                         originalImage: originalImage,
                         imageWidth: imageWidth,
                         imageHeight: imageHeight,
                         resizedImage: resizedImage,
                     })];
-            case 2:
+            case 7:
                 _a.sent();
                 image = fs_1.default.readFileSync(resizedImage);
                 console.log('image resized');
                 res.status(200).contentType('jpeg').send(image);
-                _a.label = 3;
-            case 3: return [3 /*break*/, 5];
-            case 4:
+                _a.label = 8;
+            case 8: return [3 /*break*/, 10];
+            case 9:
                 error_1 = _a.sent();
                 return [2 /*return*/, error_1];
-            case 5: return [2 /*return*/];
+            case 10: return [2 /*return*/];
         }
     });
 }); };
