@@ -50,7 +50,6 @@ describe('test image resizing', function () {
                     imagePath = '../../images?filename=santamonica&width=100&height=100';
                     if (fs_1.default.existsSync(imagePath)) {
                         fs_1.default.unlinkSync(imagePath);
-                        console.log('image exist');
                     }
                     originalImage = "../../images/full/santamonica.jpg";
                     resizedImage = "images/full/santamonica-100-100.jpg";
