@@ -53,7 +53,6 @@ var resizeImage = function (_a) {
                             .toFile(resizedImage)];
                 case 1:
                     outputImage = _b.sent();
-                    console.log(typeof resizedImage);
                     return [2 /*return*/, outputImage];
                 case 2:
                     error_1 = _b.sent();

@@ -53,12 +53,10 @@ var getImageFile = function (req, res) { return __awaiter(void 0, void 0, void 0
                 originalImage = "images/full/".concat(fileName, ".jpg");
                 resizedImage = "images/full/".concat(fileName, "-").concat(imageWidth, "-").concat(imageHeight, ".jpg");
                 existImage = (0, checkExistImage_1.default)({ fileName: fileName, imageWidth: imageWidth, imageHeight: imageHeight });
-                console.log(existImage);
                 _a.label = 1;
             case 1:
                 _a.trys.push([1, 9, , 10]);
                 if (!existImage) return [3 /*break*/, 2];
-                console.log('image is exist');
                 return [2 /*return*/, res
                         .status(200)
                         .contentType('jpeg')
@@ -90,7 +88,6 @@ var getImageFile = function (req, res) { return __awaiter(void 0, void 0, void 0
             case 7:
                 _a.sent();
                 image = fs_1.default.readFileSync(resizedImage);
-                console.log('image resized');
                 res.status(200).contentType('jpeg').send(image);
                 _a.label = 8;
             case 8: return [3 /*break*/, 10];
